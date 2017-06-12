@@ -1,7 +1,7 @@
 package com.dfexamples.testtheinternet.Tests;
 
-import com.dfexamples.testtheinternet.Framework.Pages.LoginPage;
-import com.dfexamples.testtheinternet.Framework.Pages.SecureLoggedInPage;
+import com.dfexamples.testtheinternet.Pages.LoginPage;
+import com.dfexamples.testtheinternet.Pages.SecureLoggedInPage;
 import com.dfexamples.testtheinternet.Framework.Utilities.Capture;
 import org.junit.Test;
 

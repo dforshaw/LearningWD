@@ -1,4 +1,4 @@
-package com.dfexamples.testtheinternet.Framework.Pages;
+package com.dfexamples.testtheinternet.Pages;
 
 import com.dfexamples.testtheinternet.Framework.DriverManager;
 
