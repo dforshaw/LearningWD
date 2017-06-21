@@ -1,7 +1,8 @@
-package com.dfexamples.testtheinternet.Framework.Enums;
+package com.dfexamples.testtheinternet.Enums;
 
 public enum TestURL {
 
+    BASE_ADDRESS("http://the-internet.herokuapp.com"),
     LOGIN_PAGE("/login"),
     MAIN_PAGE("/");
 

@@ -1,13 +1,13 @@
-package com.dfexamples.testtheinternet.Framework.Enums;
+package com.dfexamples.framework.Enums;
 
-public enum Browser {
+public enum BrowserChoice {
     BROWSER_CHROME("Chrome"),
     BROWSER_MARIONETTE("Marionette"),
     BROWSER_FIREFOX("Firefox");
 
     String browser;
 
-    private Browser(String browser_to_use) {
+    private BrowserChoice(String browser_to_use) {
         this.browser = browser_to_use;
     }
 

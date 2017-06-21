@@ -1,4 +1,4 @@
-package com.dfexamples.testtheinternet.Framework.Utilities;
+package com.dfexamples.framework.Utilities;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

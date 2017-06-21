@@ -1,8 +1,7 @@
 package com.dfexamples.testtheinternet.Tests;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 
 public class BaseTest {

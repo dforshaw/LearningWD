@@ -1,6 +1,6 @@
 package com.dfexamples.testtheinternet.Pages;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 import org.openqa.selenium.By;
 
 public class SecureLoggedInPage {

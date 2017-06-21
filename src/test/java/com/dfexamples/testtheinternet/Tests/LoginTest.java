@@ -2,14 +2,14 @@ package com.dfexamples.testtheinternet.Tests;
 
 import com.dfexamples.testtheinternet.Pages.LoginPage;
 import com.dfexamples.testtheinternet.Pages.SecureLoggedInPage;
-import com.dfexamples.testtheinternet.Framework.Utilities.Capture;
+import com.dfexamples.framework.Utilities.Capture;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static com.dfexamples.testtheinternet.Framework.Enums.TestUser.USER_W_BAD_LOGIN;
-import static com.dfexamples.testtheinternet.Framework.Enums.TestUser.USER_W_BAD_PWD;
-import static com.dfexamples.testtheinternet.Framework.Enums.TestUser.USER_W_GOOD_INFO;
+import static com.dfexamples.testtheinternet.Enums.TestUser.USER_W_BAD_LOGIN;
+import static com.dfexamples.testtheinternet.Enums.TestUser.USER_W_BAD_PWD;
+import static com.dfexamples.testtheinternet.Enums.TestUser.USER_W_GOOD_INFO;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;

@@ -1,4 +1,4 @@
-package com.dfexamples.testtheinternet.Framework.Enums;
+package com.dfexamples.testtheinternet.Enums;
 
 public enum TestUser {
 
