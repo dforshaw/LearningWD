@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import static com.dfexamples.framework.Enums.BrowserPaths.CHROME_DRIVER_PATH;
 import static com.dfexamples.framework.Enums.BrowserPaths.GECKO_DRIVER_PATH;
 import static com.dfexamples.framework.Enums.BrowserPaths.WEBDRIVER_CLIENTS;
-import static com.dfexamples.framework.Enums.CommonPaths.CODE_DIRECTORY_WORK;
+import static com.dfexamples.framework.Enums.CommonPaths.CODE_DIRECTORY_HOME;
 import static com.dfexamples.framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
 
 public class DriverManager {
@@ -21,8 +21,8 @@ public class DriverManager {
     public static WebDriver DriverInstance;
     public static String OperatingSystem = PropertyManager.getProperty("operating_system");
     public static String UserHomeDir = USER_HOME_DIRECTORY.getPath();
-//    public static String CodeDirectory = CODE_DIRECTORY_HOME.getPath();
-    public static String CodeDirectory = CODE_DIRECTORY_WORK.getPath();
+    public static String CodeDirectory = CODE_DIRECTORY_HOME.getPath();
+//    public static String CodeDirectory = CODE_DIRECTORY_WORK.getPath();
     public static String WdClientDirectory = CodeDirectory + WEBDRIVER_CLIENTS.getPath();
     public static String ChromeDriverDirectory = WdClientDirectory + CHROME_DRIVER_PATH.getPath();
     public static String FirefoxDriverDirectory = WdClientDirectory + GECKO_DRIVER_PATH.getPath();

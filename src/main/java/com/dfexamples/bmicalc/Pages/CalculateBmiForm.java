@@ -1,6 +1,6 @@
 package com.dfexamples.bmicalc.Pages;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
