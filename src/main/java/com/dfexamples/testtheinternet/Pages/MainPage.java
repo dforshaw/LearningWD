@@ -1,6 +1,6 @@
 package com.dfexamples.testtheinternet.Pages;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 
 import static com.dfexamples.testtheinternet.Enums.TestURL.BASE_ADDRESS;
 import static com.dfexamples.testtheinternet.Enums.TestURL.MAIN_PAGE;

@@ -1,9 +1,9 @@
-package com.dfexamples.framework;
+package com.dfexamples.Framework;
 
 import java.util.Optional;
 import java.util.Properties;
 
-import static com.dfexamples.framework.Enums.BrowserChoice.BROWSER_CHROME;
+import static com.dfexamples.Framework.Enums.BrowserChoice.BROWSER_CHROME;
 
 public class PropertyManager {
 

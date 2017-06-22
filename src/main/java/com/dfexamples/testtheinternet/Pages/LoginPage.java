@@ -1,6 +1,6 @@
 package com.dfexamples.testtheinternet.Pages;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 

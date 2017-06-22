@@ -1,4 +1,4 @@
-package com.dfexamples.framework;
+package com.dfexamples.Framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.dfexamples.framework.Enums.BrowserPaths.CHROME_DRIVER_PATH;
-import static com.dfexamples.framework.Enums.BrowserPaths.GECKO_DRIVER_PATH;
-import static com.dfexamples.framework.Enums.BrowserPaths.WEBDRIVER_CLIENTS;
-import static com.dfexamples.framework.Enums.CommonPaths.CODE_DIRECTORY_HOME;
-import static com.dfexamples.framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
+import static com.dfexamples.Framework.Enums.BrowserPaths.CHROME_DRIVER_PATH;
+import static com.dfexamples.Framework.Enums.BrowserPaths.GECKO_DRIVER_PATH;
+import static com.dfexamples.Framework.Enums.BrowserPaths.WEBDRIVER_CLIENTS;
+import static com.dfexamples.Framework.Enums.CommonPaths.CODE_DIRECTORY_HOME;
+import static com.dfexamples.Framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
 
 public class DriverManager {
 

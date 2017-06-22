@@ -1,6 +1,6 @@
-package com.dfexamples.framework.Utilities;
+package com.dfexamples.Framework.Utilities;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.OutputType;

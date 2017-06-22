@@ -1,4 +1,4 @@
-package com.dfexamples.framework.Enums;
+package com.dfexamples.Framework.Enums;
 
 public enum CommonPaths {
     USER_HOME_DIRECTORY(System.getProperty("user.home")),

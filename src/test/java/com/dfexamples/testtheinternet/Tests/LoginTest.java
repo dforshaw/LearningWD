@@ -2,7 +2,7 @@ package com.dfexamples.testtheinternet.Tests;
 
 import com.dfexamples.testtheinternet.Pages.LoginPage;
 import com.dfexamples.testtheinternet.Pages.SecureLoggedInPage;
-import com.dfexamples.framework.Utilities.Capture;
+import com.dfexamples.Framework.Utilities.Capture;
 import org.junit.Test;
 
 import java.io.IOException;

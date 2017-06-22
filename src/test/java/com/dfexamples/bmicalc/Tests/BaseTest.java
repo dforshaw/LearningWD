@@ -1,6 +1,6 @@
 package com.dfexamples.bmicalc.Tests;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 import org.junit.After;
 import org.junit.Before;
 

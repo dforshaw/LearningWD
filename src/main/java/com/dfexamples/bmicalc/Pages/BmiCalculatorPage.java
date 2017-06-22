@@ -1,8 +1,7 @@
 package com.dfexamples.bmicalc.Pages;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 import com.dfexamples.bmicalc.Enums.TestURL;
-import org.openqa.selenium.By;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

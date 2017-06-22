@@ -1,6 +1,6 @@
 package com.dfexamples.store_practice.tests;
 
-import com.dfexamples.framework.DriverManager;
+import com.dfexamples.Framework.DriverManager;
 import org.junit.After;
 import org.junit.Before;
 

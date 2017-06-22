@@ -1,4 +1,4 @@
-package com.dfexamples.framework.Enums;
+package com.dfexamples.Framework.Enums;
 
 public enum BrowserPaths {
     WEBDRIVER_CLIENTS("/_webdriver_clients"),
