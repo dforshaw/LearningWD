@@ -1,4 +1,4 @@
-package com.dfexamples.testtheinternet.Framework;
+package com.dfexamples.framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,21 +10,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.dfexamples.testtheinternet.Framework.Enums.PathConfig.PATH_TO_CHROME_DRIVER;
-import static com.dfexamples.testtheinternet.Framework.Enums.PathConfig.PATH_TO_GECKO_DRIVER;
-import static com.dfexamples.testtheinternet.Framework.Enums.PathConfig.PROJ_LOCATION_HOME;
-import static com.dfexamples.testtheinternet.Framework.Enums.PathConfig.WEBDRIVER_CLIENTS;
+import static com.dfexamples.framework.Enums.BrowserPaths.CHROME_DRIVER_PATH;
+import static com.dfexamples.framework.Enums.BrowserPaths.GECKO_DRIVER_PATH;
+import static com.dfexamples.framework.Enums.BrowserPaths.WEBDRIVER_CLIENTS;
+import static com.dfexamples.framework.Enums.CommonPaths.CODE_DIRECTORY_WORK;
+import static com.dfexamples.framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
 
 public class DriverManager {
 
     public static WebDriver DriverInstance;
-    public static String BaseAddress = PropertyManager.getProperty("base_address");
-    public static String RepoName = PropertyManager.getProperty("repo_name");
     public static String OperatingSystem = PropertyManager.getProperty("operating_system");
-    public static String UserHomeDir = System.getProperty("user.home");
-    public static String ProjHomeDir = UserHomeDir + PROJ_LOCATION_HOME.getPath() + RepoName;
-//    public static String ProjHomeDir = UserHomeDir + PROJ_LOCATION_WORK.getPath() + RepoName;
-    public static String BrowserDriverVendorDir = ProjHomeDir + "/.." + WEBDRIVER_CLIENTS.getPath();
+    public static String UserHomeDir = USER_HOME_DIRECTORY.getPath();
+//    public static String CodeDirectory = CODE_DIRECTORY_HOME.getPath();
+    public static String CodeDirectory = CODE_DIRECTORY_WORK.getPath();
+    public static String WdClientDirectory = CodeDirectory + WEBDRIVER_CLIENTS.getPath();
+    public static String ChromeDriverDirectory = WdClientDirectory + CHROME_DRIVER_PATH.getPath();
+    public static String FirefoxDriverDirectory = WdClientDirectory + GECKO_DRIVER_PATH.getPath();
 
     public static void Initialize() {
         String browsername = PropertyManager.getProperty("SelectedBrowser");
@@ -58,7 +59,7 @@ public class DriverManager {
     }
 
     private static void setUpDriverInstanceUsingChrome() {
-        String path = BrowserDriverVendorDir + PATH_TO_CHROME_DRIVER.getPath();
+        String path = UserHomeDir + ChromeDriverDirectory;
         path = determineExtensionForBrowserDriver(path);
 
         System.setProperty("webdriver.chrome.driver", path);
@@ -66,7 +67,7 @@ public class DriverManager {
     }
 
     private static void setUpDriverInstanceUsingFirefox() {
-        String path = BrowserDriverVendorDir + PATH_TO_GECKO_DRIVER.getPath();
+        String path = UserHomeDir + FirefoxDriverDirectory;
         path = determineExtensionForBrowserDriver(path);
 
         System.setProperty("webdriver.gecko.driver", path);
@@ -77,7 +78,7 @@ public class DriverManager {
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("marionette", true);
 
-        String path = BrowserDriverVendorDir + PATH_TO_GECKO_DRIVER.getPath();
+        String path = UserHomeDir + FirefoxDriverDirectory;
         path = determineExtensionForBrowserDriver(path);
 
         System.setProperty("webdriver.gecko.driver", path);
@@ -94,10 +95,6 @@ public class DriverManager {
 
     public static void Quit() {
         DriverInstance.quit();
-    }
-
-    public static String getBaseAddress() {
-        return BaseAddress;
     }
 
     public static void waitForClickable(By locator, int timeUnit) {

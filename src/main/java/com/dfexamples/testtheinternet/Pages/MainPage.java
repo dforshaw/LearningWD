@@ -1,15 +1,15 @@
 package com.dfexamples.testtheinternet.Pages;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 
-import static com.dfexamples.testtheinternet.Framework.DriverManager.BaseAddress;
-import static com.dfexamples.testtheinternet.Framework.Enums.TestURL.MAIN_PAGE;
+import static com.dfexamples.testtheinternet.Enums.TestURL.BASE_ADDRESS;
+import static com.dfexamples.testtheinternet.Enums.TestURL.MAIN_PAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPage {
 
     public static void GoTo() {
-        DriverManager.DriverInstance.navigate().to(BaseAddress + MAIN_PAGE.getUrl());
+        DriverManager.DriverInstance.navigate().to(BASE_ADDRESS.getUrl() + MAIN_PAGE.getUrl());
         assertThat(DriverManager.DriverInstance.getTitle()).isEqualToIgnoringCase("The Internet");
     }
 }

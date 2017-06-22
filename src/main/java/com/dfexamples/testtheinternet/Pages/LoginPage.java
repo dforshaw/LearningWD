@@ -1,11 +1,11 @@
 package com.dfexamples.testtheinternet.Pages;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
-import static com.dfexamples.testtheinternet.Framework.DriverManager.BaseAddress;
-import static com.dfexamples.testtheinternet.Framework.Enums.TestURL.LOGIN_PAGE;
+import static com.dfexamples.testtheinternet.Enums.TestURL.BASE_ADDRESS;
+import static com.dfexamples.testtheinternet.Enums.TestURL.LOGIN_PAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginPage {
@@ -15,7 +15,7 @@ public class LoginPage {
 
     public static void GoTo() {
 
-        DriverManager.DriverInstance.navigate().to(BaseAddress + LOGIN_PAGE.getUrl());
+        DriverManager.DriverInstance.navigate().to(BASE_ADDRESS.getUrl() + LOGIN_PAGE.getUrl());
         assertThat(DriverManager.DriverInstance.findElement(usernameSelector).isDisplayed());
     }
 

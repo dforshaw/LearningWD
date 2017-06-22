@@ -1,6 +1,6 @@
-package com.dfexamples.testtheinternet.Framework.Utilities;
+package com.dfexamples.framework.Utilities;
 
-import com.dfexamples.testtheinternet.Framework.DriverManager;
+import com.dfexamples.framework.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.OutputType;

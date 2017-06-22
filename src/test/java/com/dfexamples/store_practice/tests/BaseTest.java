@@ -1,4 +1,4 @@
-package com.dfexamples.testtheinternet.Tests;
+package com.dfexamples.store_practice.tests;
 
 import com.dfexamples.framework.DriverManager;
 import org.junit.After;
