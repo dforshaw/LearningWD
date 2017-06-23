@@ -19,3 +19,5 @@ Resources
 [The Internet](http://the-internet.herokuapp.com/) by Dave Haeffner
 
 [The Selenium Guidebook](https://seleniumguidebook.com/) by Dave Haeffner
+
+[Tutorials by Selenium Framework](http://www.seleniumframework.com/)
