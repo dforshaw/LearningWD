@@ -1,9 +1,7 @@
 package com.dfexamples.Framework.Enums;
 
 public enum CommonPaths {
-    USER_HOME_DIRECTORY(System.getProperty("user.home")),
-    CODE_DIRECTORY_HOME("/Code"),
-    CODE_DIRECTORY_WORK("/IdeaProjects");
+    USER_HOME_DIRECTORY(System.getProperty("user.home"));
 
     String path;
 

@@ -1,9 +1,12 @@
 package com.dfexamples.Framework.Enums;
 
+import static com.dfexamples.Framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
+
 public enum BrowserPaths {
     WEBDRIVER_CLIENTS("/_webdriver_clients"),
-    CHROME_DRIVER_PATH("/chromedriver/chromedriver"),
-    GECKO_DRIVER_PATH("/geckodriver/geckodriver");
+    WEBDRIVER_CLIENT_PATH(USER_HOME_DIRECTORY.getPath() + WEBDRIVER_CLIENTS.getPath()),
+    CHROME_DRIVER_PATH("/chromedriver"),
+    GECKO_DRIVER_PATH("/geckodriver");
 
     String path;
 

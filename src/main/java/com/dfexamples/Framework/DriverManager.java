@@ -3,6 +3,7 @@ package com.dfexamples.Framework;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,22 +11,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.dfexamples.Framework.Enums.BrowserPaths.CHROME_DRIVER_PATH;
-import static com.dfexamples.Framework.Enums.BrowserPaths.GECKO_DRIVER_PATH;
-import static com.dfexamples.Framework.Enums.BrowserPaths.WEBDRIVER_CLIENTS;
-import static com.dfexamples.Framework.Enums.CommonPaths.CODE_DIRECTORY_HOME;
-import static com.dfexamples.Framework.Enums.CommonPaths.USER_HOME_DIRECTORY;
+import static com.dfexamples.Framework.Enums.BrowserPaths.*;
 
 public class DriverManager {
 
     public static WebDriver DriverInstance;
     public static String OperatingSystem = PropertyManager.getProperty("operating_system");
-    public static String UserHomeDir = USER_HOME_DIRECTORY.getPath();
-    public static String CodeDirectory = CODE_DIRECTORY_HOME.getPath();
-//    public static String CodeDirectory = CODE_DIRECTORY_WORK.getPath();
-    public static String WdClientDirectory = CodeDirectory + WEBDRIVER_CLIENTS.getPath();
-    public static String ChromeDriverDirectory = WdClientDirectory + CHROME_DRIVER_PATH.getPath();
-    public static String FirefoxDriverDirectory = WdClientDirectory + GECKO_DRIVER_PATH.getPath();
+    public static String ChromeDriver = WEBDRIVER_CLIENT_PATH.getPath() + CHROME_DRIVER_PATH.getPath();
+    public static String FirefoxDriver = WEBDRIVER_CLIENT_PATH.getPath() + GECKO_DRIVER_PATH.getPath();
 
     public static void Initialize() {
         String browsername = PropertyManager.getProperty("SelectedBrowser");
@@ -34,6 +27,8 @@ public class DriverManager {
             browsername = System.getProperty("browserType");
 
         setUpDriverInstance(browsername);
+
+        DriverInstance.manage().window().maximize();
 
         DriverInstance.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
@@ -59,18 +54,16 @@ public class DriverManager {
     }
 
     private static void setUpDriverInstanceUsingChrome() {
-        String path = UserHomeDir + ChromeDriverDirectory;
-        path = determineExtensionForBrowserDriver(path);
-
-        System.setProperty("webdriver.chrome.driver", path);
-        DriverInstance = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", checkOsForDriverExtension(ChromeDriver));
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("start-maximized");
+        options.addArguments("window-size=1920,1080");
+        options.addArguments("disable-infobars");
+        DriverInstance = new ChromeDriver(options);
     }
 
     private static void setUpDriverInstanceUsingFirefox() {
-        String path = UserHomeDir + FirefoxDriverDirectory;
-        path = determineExtensionForBrowserDriver(path);
-
-        System.setProperty("webdriver.gecko.driver", path);
+        System.setProperty("webdriver.gecko.driver", checkOsForDriverExtension(FirefoxDriver));
         DriverInstance = new FirefoxDriver();
     }
 
@@ -78,14 +71,11 @@ public class DriverManager {
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("marionette", true);
 
-        String path = UserHomeDir + FirefoxDriverDirectory;
-        path = determineExtensionForBrowserDriver(path);
-
-        System.setProperty("webdriver.gecko.driver", path);
+        System.setProperty("webdriver.gecko.driver", checkOsForDriverExtension(FirefoxDriver));
         DriverInstance = new FirefoxDriver(capabilities);
     }
 
-    private static String determineExtensionForBrowserDriver(String driverPath) {
+    private static String checkOsForDriverExtension(String driverPath) {
         return (OperatingSystem.equalsIgnoreCase("mac os x") ? driverPath : driverPath + ".exe");
     }
 
