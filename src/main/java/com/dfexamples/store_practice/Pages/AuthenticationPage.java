@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.dfexamples.Framework.DriverManager.click;
+import static com.dfexamples.Framework.DriverManager.enterValue;
+import static com.dfexamples.Framework.DriverManager.waitForClickable;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationPage {
@@ -18,7 +21,8 @@ public class AuthenticationPage {
         String header = DriverManager.DriverInstance.findElement(authenticationHeader).getText();
 
         if (header.equalsIgnoreCase("Authentication")) {
-            System.out.println("On the Authentication Page");
+
+            waitForClickable(createAccountButton, 10);
             return true;
         }
         else return false;
@@ -33,13 +37,8 @@ public class AuthenticationPage {
         }
 
         System.out.println(email);
-
-        DriverManager.DriverInstance.findElement(emailCreateAccount).sendKeys(email);
-        DriverManager.DriverInstance.findElement(createAccountButton).click();
-
-        WebDriverWait wait = new WebDriverWait(DriverManager.DriverInstance, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(CreateAccountPage.registerButton));
-
+        enterValue(emailCreateAccount, email);
+        click(createAccountButton);
         assertThat(CreateAccountPage.isAt().equals(true));
     }
 }

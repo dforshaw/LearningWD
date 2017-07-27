@@ -2,6 +2,7 @@ package com.dfexamples.Framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,10 +10,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import static com.dfexamples.Framework.Enums.BrowserPaths.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DriverManager {
 
@@ -89,6 +92,15 @@ public class DriverManager {
     public static void waitForVisible(By locator, int timeUnit) {
         WebDriverWait wait = new WebDriverWait(DriverManager.DriverInstance,timeUnit);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static void enterValue(By locator, String value) {
+        DriverManager.DriverInstance.findElement(locator).clear();
+        DriverManager.DriverInstance.findElement(locator).sendKeys(value);
+    }
+
+    public static void click(By locator) {
+        DriverManager.DriverInstance.findElement(locator).click();
     }
 }
 

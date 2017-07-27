@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.dfexamples.Framework.DriverManager.waitForClickable;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomePage {
@@ -13,11 +14,10 @@ public class HomePage {
     private static By signInLink = By.cssSelector(".login");
 
     public static void goTo() {
-        DriverManager.DriverInstance.navigate().to(TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl());
+        String url = TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl();
 
-        WebDriverWait wait = new WebDriverWait(DriverManager.DriverInstance, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(signInLink));
-
+        DriverManager.DriverInstance.navigate().to(url);
+        waitForClickable(signInLink, 10);
         assertThat(isAt().equals(true));
     }
 
@@ -25,7 +25,6 @@ public class HomePage {
         String title = DriverManager.DriverInstance.getTitle();
 
         if (title.equalsIgnoreCase("My Store")) {
-            System.out.println("On the Home Page");
             return true;
         }
         else return false;
@@ -33,10 +32,6 @@ public class HomePage {
 
     public static void selectSignInLink() {
         DriverManager.DriverInstance.findElement(signInLink).click();
-
-        WebDriverWait wait = new WebDriverWait(DriverManager.DriverInstance, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(AuthenticationPage.createAccountButton));
-
         assertThat(AuthenticationPage.isAt().equals(true));
     }
 }
