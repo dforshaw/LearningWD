@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPage {
 
-    public static void GoTo() {
+    public static void goTo() {
         DriverManager.DriverInstance.navigate().to(BASE_ADDRESS.getUrl() + MAIN_PAGE.getUrl());
         assertThat(DriverManager.DriverInstance.getTitle()).isEqualToIgnoringCase("The Internet");
     }

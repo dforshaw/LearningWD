@@ -13,13 +13,13 @@ public class LoginPage {
     private static By usernameSelector = By.id("username");
     private static By errorMsgSelector = By.cssSelector(".flash.error");;
 
-    public static void GoTo() {
+    public static void goTo() {
 
         DriverManager.DriverInstance.navigate().to(BASE_ADDRESS.getUrl() + LOGIN_PAGE.getUrl());
         assertThat(DriverManager.DriverInstance.findElement(usernameSelector).isDisplayed());
     }
 
-    public static LoginCommand LoginAs(String userName) {
+    public static LoginCommand loginAs(String userName) {
 
         return new LoginCommand(userName);
     }

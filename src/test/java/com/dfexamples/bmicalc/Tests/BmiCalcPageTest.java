@@ -2,18 +2,11 @@ package com.dfexamples.bmicalc.Tests;
 
 import com.dfexamples.bmicalc.Pages.BmiCalculatorPage;
 
-import com.dfexamples.testtheinternet.Pages.SecureLoggedInPage;
-import org.hamcrest.Matchers;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 //import static com.dfexamples.bmicalc.Pages.BmiCalculatorPage.CalculateBmi;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.hamcrest.Matchers.is;
 
 public class BmiCalcPageTest extends BaseTest {
@@ -43,13 +36,13 @@ public class BmiCalcPageTest extends BaseTest {
 
     @Test
     public void firstBasicTest() {
-        BmiCalculatorPage.GoTo();
+        BmiCalculatorPage.goTo();
     }
 
     @Ignore
     @Test
     public void TestBMICalculatorWithDataSet() throws Exception {
-        BmiCalculatorPage.GoTo();
+        BmiCalculatorPage.goTo();
 
 //        assertThat("Calculation failed - wrong BMI", CalculateBmi(height, weight).getBmi().toString(), is(bmi.toString()));
 //        assertThat("Calculation failed - wrong BMI Category", CalculateBmi(height, weight).getBmiCategory().toString(), is(bmiCategory.toString()));

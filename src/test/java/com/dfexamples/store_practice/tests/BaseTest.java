@@ -8,12 +8,12 @@ public class BaseTest {
 
     @Before
     public void setUp() {
-        DriverManager.Initialize();
+        DriverManager.initialize();
     }
 
     @After
     public void tearDown() {
-        DriverManager.Close();
-        DriverManager.Quit();
+        DriverManager.close();
+        DriverManager.quit();
     }
 }

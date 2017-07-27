@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 
 public class Capture {
-    public static void TakeScreenshot(String testSet) throws IOException {
+    public static void takeScreenshot(String testSet) throws IOException {
 
         try{
             if(((HasCapabilities) DriverManager.DriverInstance).getCapabilities().is(CapabilityType.TAKES_SCREENSHOT)) {

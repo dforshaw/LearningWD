@@ -16,12 +16,12 @@ public class DropdownPage {
     private static By dropdownListSelector = By.id("dropdown");
     private static By dropdownOptionsSelector = By.tagName("option");
 
-    public static void GoTo() {
+    public static void goTo() {
         DriverManager.DriverInstance.navigate().to(BASE_ADDRESS.getUrl() + DROPDOWN_PAGE.getUrl());
         assertThat(DriverManager.DriverInstance.findElement(pageNameSelector).getText()).isEqualToIgnoringCase("Dropdown List");
     }
 
-    public static void SelectFromDropdown(String choice) {
+    public static void selectFromDropdown(String choice) {
         WebElement dropdownList = DriverManager.DriverInstance.findElement(dropdownListSelector);
         List<WebElement> options = dropdownList.findElements(dropdownOptionsSelector);
 
@@ -31,10 +31,10 @@ public class DropdownPage {
             }
         }
 
-        VerifyDropdownSelectionIs(choice);
+        verifyDropdownSelectionIs(choice);
     }
 
-    public static void VerifyDropdownSelectionIs(String selection) {
+    public static void verifyDropdownSelectionIs(String selection) {
         WebElement dropdownList = DriverManager.DriverInstance.findElement(dropdownListSelector);
         List<WebElement> options = dropdownList.findElements(dropdownOptionsSelector);
         String selectedOption = "";

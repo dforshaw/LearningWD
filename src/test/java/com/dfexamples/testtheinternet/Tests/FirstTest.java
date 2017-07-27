@@ -7,6 +7,6 @@ public class FirstTest extends BaseTest {
 
     @Test
     public void basicTest() {
-        MainPage.GoTo();
+        MainPage.goTo();
     }
 }

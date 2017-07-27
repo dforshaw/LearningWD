@@ -19,21 +19,21 @@ public class LoginTest extends BaseTest {
     @Test
     public void User_Can_Login() {
 
-        LoginPage.GoTo();
+        LoginPage.goTo();
 
-        LoginPage.LoginAs(USER_W_GOOD_INFO.getUsername()).WithPassword(USER_W_GOOD_INFO.getPassword()).Login();
+        LoginPage.loginAs(USER_W_GOOD_INFO.getUsername()).withPassword(USER_W_GOOD_INFO.getPassword()).Login();
 
         assertThat("Failed to login",
-                SecureLoggedInPage.IsAt(),
+                SecureLoggedInPage.isAt(),
                 is(true));
     }
 
     @Test
     public void User_With_Wrong_Password_Gets_Error() {
 
-        LoginPage.GoTo();
+        LoginPage.goTo();
 
-        LoginPage.LoginAs(USER_W_BAD_PWD.getUsername()).WithPassword(USER_W_BAD_PWD.getPassword()).Login();
+        LoginPage.loginAs(USER_W_BAD_PWD.getUsername()).withPassword(USER_W_BAD_PWD.getPassword()).Login();
 
         try {
             assertThat("Received error message from bad password",
@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest {
                     startsWith("Your password is invalid!"));
         } finally {
             try {
-                Capture.TakeScreenshot("LoginPage");
+                Capture.takeScreenshot("LoginPage");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -51,9 +51,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void User_With_Wrong_Username_Gets_Error() {
 
-        LoginPage.GoTo();
+        LoginPage.goTo();
 
-        LoginPage.LoginAs(USER_W_BAD_LOGIN.getUsername()).WithPassword(USER_W_BAD_LOGIN.getPassword()).Login();
+        LoginPage.loginAs(USER_W_BAD_LOGIN.getUsername()).withPassword(USER_W_BAD_LOGIN.getPassword()).Login();
 
         try {
         assertThat("Received error message from bad password",
@@ -61,7 +61,7 @@ public class LoginTest extends BaseTest {
                 startsWith("Your username is invalid!"));
         } finally {
             try {
-                Capture.TakeScreenshot("LoginPage");
+                Capture.takeScreenshot("LoginPage");
             } catch (IOException e) {
                 e.printStackTrace();
             }

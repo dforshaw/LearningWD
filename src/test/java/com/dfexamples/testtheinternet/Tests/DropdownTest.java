@@ -7,13 +7,13 @@ public class DropdownTest extends BaseTest {
 
     @Test
     public void User_Can_Access_Dropdown_List_Page() {
-        DropdownPage.GoTo();
+        DropdownPage.goTo();
     }
 
     @Test
     public void User_Can_Select_From_A_Dropdown_List() {
-        DropdownPage.GoTo();
-        DropdownPage.SelectFromDropdown("Option 1");
+        DropdownPage.goTo();
+        DropdownPage.selectFromDropdown("Option 1");
     }
 }
 

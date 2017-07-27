@@ -9,7 +9,7 @@ public class SecureLoggedInPage {
     private static By SecurePageLogoutButtonSelector = By.cssSelector(".icon-signout");
     private static By SecurePageSubheaderSelector = By.cssSelector("h4.subheader");
 
-    public static Boolean IsAt() {
+    public static Boolean isAt() {
 
         DriverManager.waitForVisible(SecurePageLogoutButtonSelector, 10);
         DriverManager.waitForVisible(SecurePageSuccessMsgSelector, 10);

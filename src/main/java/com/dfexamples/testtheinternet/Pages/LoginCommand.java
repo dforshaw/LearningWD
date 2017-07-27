@@ -18,7 +18,7 @@ public class LoginCommand {
         this.userNameToUse = enteredUsername;
     }
 
-    public LoginCommand WithPassword(String enteredPassword) {
+    public LoginCommand withPassword(String enteredPassword) {
 
         this.passwordToUse = enteredPassword;
         return this;

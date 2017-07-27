@@ -22,7 +22,7 @@ public class CalculateBmiForm {
         this.weightToUse = enteredWeight;
     }
 
-    public void Compute() {
+    public void compute() {
 
         clear_field(heightCMSLocator);
         enter_text(heightCMSLocator, heightToUse);

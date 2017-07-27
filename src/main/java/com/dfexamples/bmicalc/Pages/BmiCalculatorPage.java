@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class BmiCalculatorPage {
 
-    public static void GoTo() {
+    public static void goTo() {
         DriverManager.DriverInstance.navigate().to(TestURL.BASE_ADDRESS.getUrl());
         String pageTitle = DriverManager.DriverInstance.getTitle();
         System.out.println(pageTitle);

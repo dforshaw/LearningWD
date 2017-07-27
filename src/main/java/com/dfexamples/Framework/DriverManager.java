@@ -18,7 +18,7 @@ public class DriverManager {
 
     public static WebDriver DriverInstance;
 
-    public static void Initialize() {
+    public static void initialize() {
         DriverInstance = createWebDriver();
         DriverInstance.manage().window().maximize();
         DriverInstance.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -32,23 +32,26 @@ public class DriverManager {
             case "Chrome":
                 path += CHROME_DRIVER_PATH.getPath() + getDriverFileExtension();
                 System.setProperty("webdriver.chrome.driver", path);
+
                 ChromeOptions options = new ChromeOptions();
-//                options.addArguments("start-maximized");
                 options.addArguments("window-size=1920,1080");
                 options.addArguments("disable-infobars");
+
                 return new ChromeDriver(options);
 
             case "Firefox":
                 path += GECKO_DRIVER_PATH.getPath() + getDriverFileExtension();
                 System.setProperty("webdriver.gecko.driver", path);
+
                 return new FirefoxDriver();
 
             case "Marionette":
+                path += GECKO_DRIVER_PATH.getPath() + getDriverFileExtension();
+                System.setProperty("webdriver.gecko.driver", path);
+
                 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                 capabilities.setCapability("marionette", true);
 
-                path += GECKO_DRIVER_PATH.getPath() + getDriverFileExtension();
-                System.setProperty("webdriver.gecko.driver", path);
                 return new FirefoxDriver(capabilities);
 
             default:
@@ -70,11 +73,11 @@ public class DriverManager {
         return (OperatingSystem.equalsIgnoreCase("mac os x") ? "" : ".exe");
     }
 
-    public static void Close() {
+    public static void close() {
         DriverInstance.close();
     }
 
-    public static void Quit() {
+    public static void quit() {
         DriverInstance.quit();
     }
 
