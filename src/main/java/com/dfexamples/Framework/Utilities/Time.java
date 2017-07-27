@@ -13,7 +13,7 @@ public class Time {
 
     public static String getCurrentDateTimeAsString() {
 
-        String currentDateTime = new SimpleDateFormat("yMdHmsS").format(new Date());
+        String currentDateTime = new SimpleDateFormat("yMMddHHmmsS").format(new Date());
 
         return currentDateTime;
     }
