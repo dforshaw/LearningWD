@@ -1,8 +1,10 @@
 package com.dfexamples.store_practice.Pages;
 
-import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 
+import java.io.IOException;
+
+import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -37,7 +39,7 @@ public class CreateAccountPage {
 
         waitForVisible(registerButton, 10);
 
-        String header = DriverManager.DriverInstance.findElement(createAccountHeader).getText();
+        String header = getText(createAccountHeader);
         if (header.equalsIgnoreCase("Create an Account")) {
 //            System.out.println("On Create Account page");
             return true;
@@ -49,7 +51,18 @@ public class CreateAccountPage {
         enterPersonalInformation();
         enterAddress();
         click(registerButton);
-        assertThat(MyAccountPage.isAt()).isTrue();
+
+        try {
+            assertThat(MyAccountPage.isAt()).isTrue();
+        } finally {
+            try {
+                takeScreenshot("MyAccountPage");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //        assertThat(MyAccountPage.isAt()).isTrue();
     }
 
     private static void enterPersonalInformation() {
@@ -63,13 +76,13 @@ public class CreateAccountPage {
         enterValue(addressLastName,"Mashin");
         enterValue(addressLine1,"100 Main Street");
         enterValue(addressCity,"Mountain View");
-        DriverManager.DriverInstance.findElement(addressState).click();
+        click(addressState);
         enterValue(addressZip,"94401");
         enterValue(addressMobilePhone,"5105551212");
         enterValue(addressAlias,"My Address");
     }
 
     public static String getEmail() {
-        return DriverManager.DriverInstance.findElement(customerEmail).getText();
+        return getText(customerEmail);
     }
 }

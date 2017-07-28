@@ -2,6 +2,7 @@ package com.dfexamples.Framework.Utilities;
 
 import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,5 +25,26 @@ public class Common extends DriverManager {
 
     public static void click(By locator) {
         DriverManager.DriverInstance.findElement(locator).click();
+    }
+
+    public static String getText(By locator) {
+        return DriverManager.DriverInstance.findElement(locator).getText();
+    }
+
+    public static void navTo(String url) {
+        DriverManager.DriverInstance.navigate().to(url);
+    }
+
+    public static String getTitle() {
+        return DriverManager.DriverInstance.getTitle();
+    }
+
+    public static String getErrorMsg(By locator) {
+
+        try {
+            return getText(locator);
+        } catch (NoSuchElementException e) {
+            return String.valueOf(e);
+        }
     }
 }

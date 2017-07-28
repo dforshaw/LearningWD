@@ -1,9 +1,12 @@
 package com.dfexamples.store_practice.Pages;
 
-import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 
+import java.io.IOException;
+
+import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.click;
+import static com.dfexamples.Framework.Utilities.Common.getText;
 import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,7 +20,7 @@ public class MyAccountPage {
 
         waitForVisible(myPersonalInfoButton, 10);
 
-        String header = DriverManager.DriverInstance.findElement(myAccountHeader).getText();
+        String header = getText(myAccountHeader);
         if (header.equalsIgnoreCase("My Account")) {
 //            System.out.println("On My Account page");
             return true;
@@ -27,6 +30,17 @@ public class MyAccountPage {
     
     public static void signOut() {
         click(signOutButton);
-        assertThat(AuthenticationPage.isAt()).isTrue();
+
+        try {
+            assertThat(AuthenticationPage.isAt()).isTrue();
+        } finally {
+            try {
+                takeScreenshot("AuthenticationPage");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+//        assertThat(AuthenticationPage.isAt()).isTrue();
     }
 }
