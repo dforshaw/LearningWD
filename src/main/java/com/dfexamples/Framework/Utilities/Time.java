@@ -18,6 +18,13 @@ public class Time {
         return currentDateTime;
     }
 
+    public static String getCurrentDateTimeAsStringForReporting() {
+
+        String currentDateTime = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss").format(new Date());
+
+        return currentDateTime;
+    }
+
     public static String getCurrentDateAsString() {
 
         String currentDateTime = new SimpleDateFormat("yMMdd").format(new Date());
