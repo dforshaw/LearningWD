@@ -22,6 +22,7 @@ public class AuthenticationPage {
 
         String header = DriverManager.DriverInstance.findElement(authenticationHeader).getText();
         if (header.equalsIgnoreCase("Authentication")) {
+            System.out.println("On Authentication page");
             return true;
         }
         else return false;
@@ -38,15 +39,17 @@ public class AuthenticationPage {
         System.out.println(email);
         enterValue(emailToCreateAccountWith, email);
         click(createAccountButton);
-        assertThat(CreateAccountPage.isAt().equals(true));
+        assertThat(CreateAccountPage.isAt()).isTrue();
         return email;
     }
 
     public static void loginWithEmail(String em, String pwd) {
 
+        waitForVisible(createAccountButton, 10);
+
         enterValue(emailToLoginWith, em);
         enterValue(passwordToLoginWith, pwd);
         click(loginAccountButton);
-        assertThat(MyAccountPage.isAt().equals(true));
+        assertThat(MyAccountPage.isAt()).isTrue();
     }
 }

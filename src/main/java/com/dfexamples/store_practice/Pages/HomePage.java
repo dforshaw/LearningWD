@@ -16,7 +16,7 @@ public class HomePage {
         String url = TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl();
         DriverManager.DriverInstance.navigate().to(url);
 
-        assertThat(isAt().equals(true));
+        assertThat(isAt()).isTrue();
     }
 
     public static Boolean isAt() {
@@ -25,6 +25,7 @@ public class HomePage {
 
         String title = DriverManager.DriverInstance.getTitle();
         if (title.equalsIgnoreCase("My Store")) {
+            System.out.println("On Home page");
             return true;
         }
         else return false;

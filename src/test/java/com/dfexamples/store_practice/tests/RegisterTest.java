@@ -4,7 +4,7 @@ import com.dfexamples.store_practice.Pages.AuthenticationPage;
 import com.dfexamples.store_practice.Pages.CreateAccountPage;
 import com.dfexamples.store_practice.Pages.HomePage;
 import com.dfexamples.store_practice.Pages.MyAccountPage;
-import com.dfexamples.testtheinternet.Enums.TestUser;
+import com.dfexamples.store_practice.Enums.TestUser;
 import org.junit.Test;
 
 public class RegisterTest extends BaseTest {
@@ -39,5 +39,3 @@ public class RegisterTest extends BaseTest {
         AuthenticationPage.loginWithEmail(email, TestUser.USER_W_GOOD_INFO.getPassword());
     }
 }
-
-// not really working
