@@ -3,6 +3,8 @@ package com.dfexamples.testtheinternet.Pages;
 import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 
+import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
+
 public class SecureLoggedInPage {
 
     private static By SecurePageSuccessMsgSelector = By.cssSelector(".flash.success");
@@ -11,8 +13,8 @@ public class SecureLoggedInPage {
 
     public static Boolean isAt() {
 
-        DriverManager.waitForVisible(SecurePageLogoutButtonSelector, 10);
-        DriverManager.waitForVisible(SecurePageSuccessMsgSelector, 10);
+        waitForVisible(SecurePageLogoutButtonSelector, 10);
+        waitForVisible(SecurePageSuccessMsgSelector, 10);
 
         // Confirm whether login success message is displayed
 

@@ -3,7 +3,10 @@ package com.dfexamples.store_practice.Pages;
 import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 
-import static com.dfexamples.Framework.DriverManager.*;
+import static com.dfexamples.Framework.Utilities.Common.click;
+import static com.dfexamples.Framework.Utilities.Common.enterValue;
+import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateAccountPage {
 /*
@@ -17,6 +20,7 @@ public class CreateAccountPage {
     private static By customerTitle = By.name("id_gender");
     private static By customerFirstName = By.id("customer_firstname");
     private static By customerLastName = By.id("customer_lastname");
+    private static By customerEmail = By.id("email");
     private static By customerPassword = By.id("passwd");
     private static By customerDobDay = By.id("days");
     private static By customerDobMonth = By.id("months");
@@ -46,6 +50,7 @@ public class CreateAccountPage {
         enterPersonalInformation();
         enterAddress();
         click(registerButton);
+        assertThat(MyAccountPage.isAt().equals(true));
     }
 
     private static void enterPersonalInformation() {
@@ -63,5 +68,9 @@ public class CreateAccountPage {
         enterValue(addressZip,"94401");
         enterValue(addressMobilePhone,"5105551212");
         enterValue(addressAlias,"My Address");
+    }
+
+    public static String getEmail() {
+        return DriverManager.DriverInstance.findElement(customerEmail).getText();
     }
 }

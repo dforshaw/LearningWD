@@ -3,10 +3,8 @@ package com.dfexamples.store_practice.Pages;
 import com.dfexamples.Framework.DriverManager;
 import com.dfexamples.store_practice.Enums.TestURL;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.dfexamples.Framework.DriverManager.waitForClickable;
+import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomePage {

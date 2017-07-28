@@ -1,8 +1,13 @@
 package com.dfexamples.Framework.Utilities;
 
+import java.util.Random;
+
 public class CreateEmail {
 
     public static String generate() {
-        return "df012668+" + Time.getCurrentDateTimeAsString() + "@gmail.com";
+        Random randomNumber = new Random();
+        Integer extra = randomNumber.nextInt(1000000);
+        System.out.println(extra);
+        return "df012668+" + Time.getCurrentDateAsString() + extra + "@gmail.com";
     }
 }

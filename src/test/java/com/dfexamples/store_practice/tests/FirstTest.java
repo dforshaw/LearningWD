@@ -1,5 +1,6 @@
 package com.dfexamples.store_practice.tests;
 
+import com.dfexamples.Framework.Utilities.CreateEmail;
 import com.dfexamples.store_practice.Enums.TestURL;
 import com.dfexamples.Framework.DriverManager;
 import org.junit.Test;
@@ -12,5 +13,14 @@ public class FirstTest extends BaseTest {
     public void Initial_Navigation_Test() {
         DriverManager.DriverInstance.navigate().to(TestURL.BASE_ADDRESS.getUrl());
         assertThat(DriverManager.DriverInstance.getTitle()).isEqualToIgnoringCase("My Store");
+    }
+
+    @Test
+    public void Email_Creation_Test() {
+        String email = "";
+
+        email = CreateEmail.generate();
+
+        System.out.println(email);
     }
 }

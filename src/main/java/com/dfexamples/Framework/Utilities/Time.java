@@ -17,4 +17,11 @@ public class Time {
 
         return currentDateTime;
     }
+
+    public static String getCurrentDateAsString() {
+
+        String currentDateTime = new SimpleDateFormat("yMMdd").format(new Date());
+
+        return currentDateTime;
+    }
 }
