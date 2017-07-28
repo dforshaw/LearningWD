@@ -3,9 +3,7 @@ package com.dfexamples.store_practice.Pages;
 import com.dfexamples.Framework.DriverManager;
 import org.openqa.selenium.By;
 
-import static com.dfexamples.Framework.Utilities.Common.click;
-import static com.dfexamples.Framework.Utilities.Common.enterValue;
-import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
+import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateAccountPage {
@@ -36,11 +34,11 @@ public class CreateAccountPage {
     private static By registerButton = By.id("submitAccount");
 
     public static Boolean isAt() {
+
+        waitForVisible(registerButton, 10);
+
         String header = DriverManager.DriverInstance.findElement(createAccountHeader).getText();
-
         if (header.equalsIgnoreCase("Create an Account")) {
-
-            waitForClickable(registerButton, 10);
             return true;
         }
         else return false;

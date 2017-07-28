@@ -14,7 +14,7 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        AuthenticationPage.createAccountWithEmail("");
+        String email = AuthenticationPage.createAccountWithEmail("");
         CreateAccountPage.enterUserAccountData();
     }
 
@@ -23,7 +23,7 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        AuthenticationPage.createAccountWithEmail("");
+        String email = AuthenticationPage.createAccountWithEmail("");
         CreateAccountPage.enterUserAccountData();
         MyAccountPage.signOut();
     }
@@ -33,10 +33,11 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        AuthenticationPage.createAccountWithEmail("");
-        String email = CreateAccountPage.getEmail();
+        String email = AuthenticationPage.createAccountWithEmail("");
         CreateAccountPage.enterUserAccountData();
         MyAccountPage.signOut();
-        AuthenticationPage.loginWithEmail(email, TestUser.USER_W_BAD_PWD.getPassword());
+        AuthenticationPage.loginWithEmail(email, TestUser.USER_W_GOOD_INFO.getPassword());
     }
 }
+
+// not really working

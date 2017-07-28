@@ -5,6 +5,7 @@ import com.dfexamples.store_practice.Enums.TestURL;
 import org.openqa.selenium.By;
 
 import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
+import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomePage {
@@ -13,15 +14,16 @@ public class HomePage {
 
     public static void goTo() {
         String url = TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl();
-
         DriverManager.DriverInstance.navigate().to(url);
-        waitForClickable(signInLink, 10);
+
         assertThat(isAt().equals(true));
     }
 
     public static Boolean isAt() {
-        String title = DriverManager.DriverInstance.getTitle();
 
+        waitForVisible(signInLink, 10);
+
+        String title = DriverManager.DriverInstance.getTitle();
         if (title.equalsIgnoreCase("My Store")) {
             return true;
         }

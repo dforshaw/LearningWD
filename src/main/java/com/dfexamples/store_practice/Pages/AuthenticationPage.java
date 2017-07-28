@@ -4,9 +4,7 @@ import com.dfexamples.Framework.DriverManager;
 import com.dfexamples.Framework.Utilities.CreateEmail;
 import org.openqa.selenium.By;
 
-import static com.dfexamples.Framework.Utilities.Common.click;
-import static com.dfexamples.Framework.Utilities.Common.enterValue;
-import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
+import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationPage {
@@ -19,17 +17,17 @@ public class AuthenticationPage {
     private static By loginAccountButton = By.id("SubmitLogin");
 
     public static Boolean isAt() {
+
+        waitForVisible(createAccountButton, 10);
+
         String header = DriverManager.DriverInstance.findElement(authenticationHeader).getText();
-
         if (header.equalsIgnoreCase("Authentication")) {
-
-            waitForClickable(createAccountButton, 10);
             return true;
         }
         else return false;
     }
 
-    public static void createAccountWithEmail(String em) {
+    public static String createAccountWithEmail(String em) {
 
         String email = em;
 
@@ -41,6 +39,7 @@ public class AuthenticationPage {
         enterValue(emailToCreateAccountWith, email);
         click(createAccountButton);
         assertThat(CreateAccountPage.isAt().equals(true));
+        return email;
     }
 
     public static void loginWithEmail(String em, String pwd) {
