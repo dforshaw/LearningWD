@@ -22,7 +22,7 @@ public class AuthenticationPage {
 
         String header = DriverManager.DriverInstance.findElement(authenticationHeader).getText();
         if (header.equalsIgnoreCase("Authentication")) {
-            System.out.println("On Authentication page");
+//            System.out.println("On Authentication page");
             return true;
         }
         else return false;
@@ -36,7 +36,7 @@ public class AuthenticationPage {
             email = CreateEmail.generate();
         }
 
-        System.out.println(email);
+        System.out.println("Email: " + email);
         enterValue(emailToCreateAccountWith, email);
         click(createAccountButton);
         assertThat(CreateAccountPage.isAt()).isTrue();

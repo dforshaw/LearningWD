@@ -2,7 +2,6 @@ package com.dfexamples.store_practice.tests;
 
 import com.dfexamples.store_practice.Enums.TestUser;
 import com.dfexamples.store_practice.Pages.AuthenticationPage;
-import com.dfexamples.store_practice.Pages.CreateAccountPage;
 import com.dfexamples.store_practice.Pages.HomePage;
 import org.junit.Test;
 

@@ -4,7 +4,6 @@ import com.dfexamples.Framework.DriverManager;
 import com.dfexamples.store_practice.Enums.TestURL;
 import org.openqa.selenium.By;
 
-import static com.dfexamples.Framework.Utilities.Common.waitForClickable;
 import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +24,7 @@ public class HomePage {
 
         String title = DriverManager.DriverInstance.getTitle();
         if (title.equalsIgnoreCase("My Store")) {
-            System.out.println("On Home page");
+//            System.out.println("On Home page");
             return true;
         }
         else return false;

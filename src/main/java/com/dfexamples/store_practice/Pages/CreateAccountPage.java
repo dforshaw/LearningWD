@@ -39,7 +39,7 @@ public class CreateAccountPage {
 
         String header = DriverManager.DriverInstance.findElement(createAccountHeader).getText();
         if (header.equalsIgnoreCase("Create an Account")) {
-            System.out.println("On Create Account page");
+//            System.out.println("On Create Account page");
             return true;
         }
         else return false;
