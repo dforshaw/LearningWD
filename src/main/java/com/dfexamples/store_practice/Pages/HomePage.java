@@ -3,9 +3,6 @@ package com.dfexamples.store_practice.Pages;
 import com.dfexamples.store_practice.Enums.TestURL;
 import org.openqa.selenium.By;
 
-import java.io.IOException;
-
-import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,21 +14,10 @@ public class HomePage {
         String url = TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl();
         navTo(url);
 
-        try {
-            assertThat(isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("HomePage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-//        assertThat(isAt()).isTrue();
+        assertThat(isAt()).isTrue();
     }
 
     public static Boolean isAt() {
-
         waitForVisible(signInLink, 10);
 
         String title = getTitle();
@@ -45,16 +31,6 @@ public class HomePage {
     public static void selectSignInLink() {
         click(signInLink);
 
-        try {
-            assertThat(AuthenticationPage.isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("AuthenticationPage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-//        assertThat(AuthenticationPage.isAt().equals(true));
+        assertThat(AuthenticationPage.isAt().equals(true));
     }
 }

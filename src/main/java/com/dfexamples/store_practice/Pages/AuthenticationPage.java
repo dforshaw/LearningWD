@@ -3,9 +3,6 @@ package com.dfexamples.store_practice.Pages;
 import com.dfexamples.Framework.Utilities.CreateEmail;
 import org.openqa.selenium.By;
 
-import java.io.IOException;
-
-import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,7 +16,6 @@ public class AuthenticationPage {
     private static By loginAccountButton = By.id("SubmitLogin");
 
     public static Boolean isAt() {
-
         waitForVisible(createAccountButton, 10);
 
         String header = getText(authenticationHeader);
@@ -31,48 +27,26 @@ public class AuthenticationPage {
     }
 
     public static String createAccountWithEmail(String em) {
-
         String email = em;
-
         if (email.isEmpty()) {
             email = CreateEmail.generate();
         }
-
         System.out.println("Email: " + email);
+
         enterValue(emailToCreateAccountWith, email);
         click(createAccountButton);
 
-        try {
-            assertThat(CreateAccountPage.isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("AuthenticationPage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-//        assertThat(CreateAccountPage.isAt()).isTrue();
+        assertThat(CreateAccountPage.isAt()).isTrue();
         return email;
     }
 
     public static void loginWithEmail(String em, String pwd) {
-
         waitForVisible(createAccountButton, 10);
 
         enterValue(emailToLoginWith, em);
         enterValue(passwordToLoginWith, pwd);
         click(loginAccountButton);
-//        assertThat(MyAccountPage.isAt()).isTrue();
 
-        try {
-            assertThat(MyAccountPage.isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("MyAccountPage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        assertThat(MyAccountPage.isAt()).isTrue();
     }
 }

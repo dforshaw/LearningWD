@@ -2,9 +2,6 @@ package com.dfexamples.store_practice.Pages;
 
 import org.openqa.selenium.By;
 
-import java.io.IOException;
-
-import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -36,7 +33,6 @@ public class CreateAccountPage {
     private static By registerButton = By.id("submitAccount");
 
     public static Boolean isAt() {
-
         waitForVisible(registerButton, 10);
 
         String header = getText(createAccountHeader);
@@ -52,17 +48,7 @@ public class CreateAccountPage {
         enterAddress();
         click(registerButton);
 
-        try {
-            assertThat(MyAccountPage.isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("MyAccountPage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        //        assertThat(MyAccountPage.isAt()).isTrue();
+        assertThat(MyAccountPage.isAt()).isTrue();
     }
 
     private static void enterPersonalInformation() {

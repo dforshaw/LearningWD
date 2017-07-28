@@ -2,9 +2,6 @@ package com.dfexamples.store_practice.Pages;
 
 import org.openqa.selenium.By;
 
-import java.io.IOException;
-
-import static com.dfexamples.Framework.Utilities.Capture.takeScreenshot;
 import static com.dfexamples.Framework.Utilities.Common.click;
 import static com.dfexamples.Framework.Utilities.Common.getText;
 import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
@@ -17,7 +14,6 @@ public class MyAccountPage {
     private static By signOutButton = By.cssSelector(".logout");
 
     public static Boolean isAt() {
-
         waitForVisible(myPersonalInfoButton, 10);
 
         String header = getText(myAccountHeader);
@@ -31,16 +27,6 @@ public class MyAccountPage {
     public static void signOut() {
         click(signOutButton);
 
-        try {
-            assertThat(AuthenticationPage.isAt()).isTrue();
-        } finally {
-            try {
-                takeScreenshot("AuthenticationPage");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-//        assertThat(AuthenticationPage.isAt()).isTrue();
+        assertThat(AuthenticationPage.isAt()).isTrue();
     }
 }
