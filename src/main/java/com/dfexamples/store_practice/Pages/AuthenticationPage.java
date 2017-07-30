@@ -26,27 +26,24 @@ public class AuthenticationPage {
         else return false;
     }
 
-    public static String createAccountWithEmail(String em) {
-        String email = em;
-        if (email.isEmpty()) {
-            email = CreateEmail.generate();
-        }
+    public static String createAccountWithEmail() {
+        String email = CreateEmail.generate("");
         System.out.println("Email: " + email);
 
         enterValue(emailToCreateAccountWith, email);
         click(createAccountButton);
 
-        assertThat(CreateAccountPage.isAt()).isTrue();
+        assertThat(RegisterNewUserPage.isAt()).isTrue();
         return email;
     }
 
-    public static void loginWithEmail(String em, String pwd) {
+    public static void loginWith(String em, String pwd) {
         waitForVisible(createAccountButton, 10);
 
         enterValue(emailToLoginWith, em);
         enterValue(passwordToLoginWith, pwd);
         click(loginAccountButton);
 
-        assertThat(MyAccountPage.isAt()).isTrue();
+        assertThat(UserAccountPage.isAt()).isTrue();
     }
 }

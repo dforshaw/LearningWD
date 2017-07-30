@@ -25,7 +25,7 @@ public class FirstTest extends BaseTest {
     public void Email_Creation_Test() {
         String email = "";
 
-        email = CreateEmail.generate();
+        email = CreateEmail.generate("");
 
         System.out.println(email);
     }

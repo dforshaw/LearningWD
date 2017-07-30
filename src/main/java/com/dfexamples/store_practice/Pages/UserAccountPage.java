@@ -7,7 +7,7 @@ import static com.dfexamples.Framework.Utilities.Common.getText;
 import static com.dfexamples.Framework.Utilities.Common.waitForVisible;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MyAccountPage {
+public class UserAccountPage {
 
     private static By myAccountHeader = By.cssSelector(".page-heading");
     private static By myPersonalInfoButton = By.cssSelector(".icon-user");

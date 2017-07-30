@@ -1,9 +1,9 @@
 package com.dfexamples.store_practice.tests;
 
 import com.dfexamples.store_practice.Pages.AuthenticationPage;
-import com.dfexamples.store_practice.Pages.CreateAccountPage;
+import com.dfexamples.store_practice.Pages.RegisterNewUserPage;
 import com.dfexamples.store_practice.Pages.HomePage;
-import com.dfexamples.store_practice.Pages.MyAccountPage;
+import com.dfexamples.store_practice.Pages.UserAccountPage;
 import com.dfexamples.store_practice.Enums.TestUser;
 import org.junit.Test;
 
@@ -14,8 +14,8 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        String email = AuthenticationPage.createAccountWithEmail("");
-        CreateAccountPage.enterUserAccountData();
+        AuthenticationPage.createAccountWithEmail();
+        RegisterNewUserPage.registerUserWithPersonalAndShippingInfo();
     }
 
     @Test
@@ -23,9 +23,9 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        String email = AuthenticationPage.createAccountWithEmail("");
-        CreateAccountPage.enterUserAccountData();
-        MyAccountPage.signOut();
+        AuthenticationPage.createAccountWithEmail();
+        RegisterNewUserPage.registerUserWithPersonalAndShippingInfo();
+        UserAccountPage.signOut();
     }
 
     @Test
@@ -33,9 +33,9 @@ public class RegisterTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        String email = AuthenticationPage.createAccountWithEmail("");
-        CreateAccountPage.enterUserAccountData();
-        MyAccountPage.signOut();
-        AuthenticationPage.loginWithEmail(email, TestUser.USER_W_GOOD_INFO.getPassword());
+        String email = AuthenticationPage.createAccountWithEmail();
+        RegisterNewUserPage.registerUserWithPersonalAndShippingInfo();
+        UserAccountPage.signOut();
+        AuthenticationPage.loginWith(email, TestUser.USER_W_GOOD_INFO.getPassword());
     }
 }

@@ -2,7 +2,6 @@ package com.dfexamples.store_practice.Enums;
 
 public enum TestURL {
 
-//    BASE_ADDRESS("http://automationpractice.com"),
     HOME_PAGE("/");
 
     private final static String BASE_ADDRESS = "http://automationpractice.com";

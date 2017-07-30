@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import static com.dfexamples.Framework.Utilities.Common.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CreateAccountPage {
+public class RegisterNewUserPage {
 /*
 *   TO DO:
 *   Implement optional fields
@@ -43,21 +43,21 @@ public class CreateAccountPage {
         else return false;
     }
 
-    public static void enterUserAccountData() {
-        enterPersonalInformation();
-        enterAddress();
+    public static void registerUserWithPersonalAndShippingInfo() {
+        fillOutPersonalInformationForm();
+        fillOutShippingAddressForm();
         click(registerButton);
 
-        assertThat(MyAccountPage.isAt()).isTrue();
+        assertThat(UserAccountPage.isAt()).isTrue();
     }
 
-    private static void enterPersonalInformation() {
+    private static void fillOutPersonalInformationForm() {
         enterValue(customerFirstName, "Otto");
         enterValue(customerLastName, "Mashin");
         enterValue(customerPassword, "tester1");
    }
 
-    private static void enterAddress() {
+    private static void fillOutShippingAddressForm() {
         enterValue(addressFirstName,"Otto");
         enterValue(addressLastName,"Mashin");
         enterValue(addressLine1,"100 Main Street");

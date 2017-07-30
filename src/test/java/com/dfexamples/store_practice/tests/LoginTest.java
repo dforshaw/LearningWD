@@ -12,6 +12,6 @@ public class LoginTest extends BaseTest {
 
         HomePage.goTo();
         HomePage.selectSignInLink();
-        AuthenticationPage.loginWithEmail(TestUser.USER_W_GOOD_INFO.getUsername(), TestUser.USER_W_GOOD_INFO.getPassword());
+        AuthenticationPage.loginWith(TestUser.USER_W_GOOD_INFO.getUsername(), TestUser.USER_W_GOOD_INFO.getPassword());
     }
 }
