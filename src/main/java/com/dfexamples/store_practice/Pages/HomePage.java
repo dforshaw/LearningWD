@@ -13,10 +13,10 @@ public class HomePage {
     private static By submitSearchButton = By.name("submit_search");
 
     public static void goTo() {
-        String url = TestURL.BASE_ADDRESS.getUrl() + TestURL.HOME_PAGE.getUrl();
+        String url = TestURL.HOME_PAGE.getUrl();
         navTo(url);
 
-        assertThat(isAt().equals(true));
+        assertThat(isAt()).isTrue();
     }
 
     public static Boolean isAt() {
@@ -33,13 +33,13 @@ public class HomePage {
     public static void selectSignInLink() {
         click(signInLink);
 
-        assertThat(AuthenticationPage.isAt().equals(true));
+        assertThat(AuthenticationPage.isAt()).isTrue();
     }
 
     public static void searchFor(String criteria) {
         enterValue(searchField, criteria);
         click(submitSearchButton);
 
-        assertThat(SearchResultsPage.isAt().equals(true));
+        assertThat(SearchResultsPage.isAt()).isTrue();
     }
 }

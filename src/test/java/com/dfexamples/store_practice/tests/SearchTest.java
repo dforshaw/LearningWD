@@ -14,6 +14,6 @@ public class SearchTest extends BaseTest {
         HomePage.goTo();
         HomePage.searchFor("yellow");
 
-        assertThat(SearchResultsPage.getSearchCriteria()).contains("yellow");
+        assertThat(SearchResultsPage.getSearchCriteria()).containsIgnoringCase("yellow");
     }
 }

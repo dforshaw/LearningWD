@@ -2,9 +2,10 @@ package com.dfexamples.store_practice.Enums;
 
 public enum TestURL {
 
-    BASE_ADDRESS("http://automationpractice.com"),
+//    BASE_ADDRESS("http://automationpractice.com"),
     HOME_PAGE("/");
 
+    private final static String BASE_ADDRESS = "http://automationpractice.com";
     String url;
 
     private TestURL(String url_to_use) {
@@ -12,6 +13,6 @@ public enum TestURL {
     }
 
     public String getUrl() {
-        return url;
+        return BASE_ADDRESS + url;
     }
 }
